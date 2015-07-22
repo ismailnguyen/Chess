@@ -1,0 +1,11 @@
+#define __WIN__
+#include "mysql.h"
+MYSQL *mySQL;
+MYSQL_RES *myRES;
+MYSQL_ROW myROW;
+AnsiString aStr;
+
+	mySQL = mysql_init(NULL);
+	mysql_real_connect(mySQL, "127.0.0.1", "root", "", "test", 0, NULL, 0);
+	mysql_query(mySQL, "select * from compte");
+    myRES = mysql_store_result(mySQL);
